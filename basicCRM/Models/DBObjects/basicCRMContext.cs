@@ -275,6 +275,10 @@ namespace basicCRM.Models.DBObjects
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Status)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.ValidFrom).HasColumnType("date");
 
                 entity.Property(e => e.ValidTo).HasColumnType("date");
