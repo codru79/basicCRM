@@ -77,9 +77,9 @@ namespace basicCRM.Repository
             }
         }
 
-        public void DeleteEmployee(EmployeeModel model)
+        public void DeleteEmployee(Guid id)
         {
-            var dbobject = _DBContext.Employees.FirstOrDefault(x => x.Idemployee == model.Idemployee);
+            var dbobject = _DBContext.Employees.FirstOrDefault(x => x.Idemployee == id);
             _DBContext.Employees.Remove(dbobject);
             _DBContext.SaveChanges();
         }

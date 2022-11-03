@@ -73,9 +73,9 @@ namespace basicCRM.Repository
             }
         }
 
-        public void DeleteCustomer(CustomerModel model)
+        public void DeleteCustomer(Guid id)
         {
-            var dbobject = _DBContext.Customers.FirstOrDefault(x => x.Idcustomer == model.Idcustomer);
+            var dbobject = _DBContext.Customers.FirstOrDefault(x => x.Idcustomer == id);
             _DBContext.Customers.Remove(dbobject);
             _DBContext.SaveChanges();
         }

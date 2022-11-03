@@ -1,26 +1,36 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using basicCRM.Repository;
+using basicCRM.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using basicCRM.Models;
 
 namespace basicCRM.Controllers
 {
     public class CustomerController : Controller
     {
+        private CustomerRepository _customerRepository;
+
+        public CustomerController(ApplicationDbContext dbcontext)
+        { 
+        _customerRepository = new CustomerRepository(dbcontext);
+        }
         // GET: CustomerController
         public ActionResult Index()
         {
-            return View();
+            var list = _customerRepository.GetAllCustomers();
+            return View(list);
         }
 
         // GET: CustomerController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            return View("DetailsCustomer");
         }
 
         // GET: CustomerController/Create
         public ActionResult Create()
         {
-            return View();
+            return View("CreateCustomer");
         }
 
         // POST: CustomerController/Create
@@ -30,53 +40,73 @@ namespace basicCRM.Controllers
         {
             try
             {
+                var model = new CustomerModel();
+                var task = TryUpdateModelAsync(model);
+                if (task.Result)
+                {
+                    _customerRepository.InsertCustomer(model);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View("CreateCustomer");
             }
         }
 
         // GET: CustomerController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            var model =_customerRepository.GetCustomerById(id);
+            return View("EditCustomer",model);
         }
 
         // POST: CustomerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Guid id, IFormCollection collection)
         {
             try
             {
+                var model = new CustomerModel();
+                var task = TryUpdateModelAsync(model);
+                if (task.Result)
+                {
+                    _customerRepository.UpdateCustomer(model);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View("EditCustomer");
             }
         }
 
         // GET: CustomerController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            var model = _customerRepository.GetCustomerById(id);
+            return View("DeleteCustomer",model);
         }
 
         // POST: CustomerController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Guid id, IFormCollection collection)
         {
             try
             {
+                var model = new CustomerModel();
+                var task = TryUpdateModelAsync(model);
+                if (task.Result)
+                {
+                    _customerRepository.DeleteCustomer(id);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View("Delete",id);
             }
         }
     }

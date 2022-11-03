@@ -9,10 +9,14 @@ namespace basicCRM.Repository
     public class OpportunityRepository
     {
         private readonly ApplicationDbContext _DBContext;
+        private EmployeeRepository _employeeRepository;
+        private CustomerRepository _customerRepository;
 
         public OpportunityRepository()
         {
             _DBContext = new ApplicationDbContext();
+            _employeeRepository = new EmployeeRepository();
+            _customerRepository = new CustomerRepository();
         }
 
         public OpportunityRepository(ApplicationDbContext dbContext)
@@ -94,9 +98,9 @@ namespace basicCRM.Repository
             }
         }
 
-        public void DeleteOpportunity(OpportunityModel model)
+        public void DeleteOpportunity(Guid id)
         {
-            var dbobject = _DBContext.Opportunities.FirstOrDefault(x => x.Idopportunity == model.Idopportunity);
+            var dbobject = _DBContext.Opportunities.FirstOrDefault(x => x.Idopportunity == id);
             if (dbobject != null)
             {
                 _DBContext.Opportunities.Remove(dbobject);

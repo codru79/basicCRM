@@ -19,12 +19,52 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Customer/CreateCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcQ3JlYXRlQ3VzdG9tZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Customer/DeleteCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGVsZXRlQ3VzdG9tZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Customer/DetailsCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRGV0YWlsc0N1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Customer/EditCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcRWRpdEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Customer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Opportunity/CreateOpportunity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3Bwb3J0dW5pdHlcQ3JlYXRlT3Bwb3J0dW5pdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Opportunity/DeleteOpportunity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3Bwb3J0dW5pdHlcRGVsZXRlT3Bwb3J0dW5pdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Opportunity/DetailsOpportunity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3Bwb3J0dW5pdHlcRGV0YWlsc09wcG9ydHVuaXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Opportunity/EditOpportunity.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3Bwb3J0dW5pdHlcRWRpdE9wcG9ydHVuaXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Opportunity/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3Bwb3J0dW5pdHlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/Shared/Error.cshtml]

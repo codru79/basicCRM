@@ -81,9 +81,9 @@ namespace basicCRM.Repository
                 dbobject.ValueMwh = model.ValueMwh;
             }
         }
-        public void DeleteOffer(OfferModel model)
+        public void DeleteOffer(Guid id)
         {
-            var dbobject = _DBContext.Offers.FirstOrDefault(x => x.Idoffer == model.Idoffer);
+            var dbobject = _DBContext.Offers.FirstOrDefault(x => x.Idoffer == id);
             _DBContext.Offers.Remove(dbobject);
             _DBContext.SaveChanges();
         }
