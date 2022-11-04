@@ -24,7 +24,8 @@ namespace basicCRM.Controllers
         // GET: CustomerController/Details/5
         public ActionResult Details(Guid id)
         {
-            return View("DetailsCustomer");
+            var model = _customerRepository.GetCustomerById(id);
+            return View("DetailsCustomer",model);
         }
 
         // GET: CustomerController/Create
