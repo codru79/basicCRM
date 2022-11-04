@@ -13,6 +13,9 @@ namespace basicCRM.Controllers
         private OpportunityRepository _opportunityRepository;
         private EmployeeRepository _employeeRepository;
         private CustomerRepository _customerRepository;
+        
+        public List<String> lcommoditytype = new List<String>() { "Gas","Power","Gas&Power"};
+        public List<String> lstatus = new List<String>() { "Won", "Lost", "Open" };
 
         public OpportunityController(ApplicationDbContext _DBContext)
         { 
@@ -44,6 +47,9 @@ namespace basicCRM.Controllers
         // GET: OpportunityController/Create
         public ActionResult Create()
         {
+
+            ViewBag.commoditytypes = lcommoditytype;
+            ViewBag.statuses = lstatus;
             var viewmodel = new OpportunityViewModelCreate(new OpportunityModel(),_customerRepository, _employeeRepository);
             return View("CreateOpportunity",viewmodel);
         }
@@ -72,6 +78,8 @@ namespace basicCRM.Controllers
         // GET: OpportunityController/Edit/5
         public ActionResult Edit(Guid id)
         {
+            ViewBag.commoditytypes = lcommoditytype;
+            ViewBag.statuses = lstatus;
             var model = _opportunityRepository.GetOpportunityByID(id);
             return View("EditOpportunity",model);
         }

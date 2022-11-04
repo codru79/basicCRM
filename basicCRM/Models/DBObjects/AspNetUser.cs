@@ -10,7 +10,6 @@ namespace basicCRM.Models.DBObjects
             AspNetUserClaims = new HashSet<AspNetUserClaim>();
             AspNetUserLogins = new HashSet<AspNetUserLogin>();
             AspNetUserTokens = new HashSet<AspNetUserToken>();
-            Employees = new HashSet<Employee>();
             Roles = new HashSet<AspNetRole>();
         }
 
@@ -33,7 +32,6 @@ namespace basicCRM.Models.DBObjects
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual ICollection<AspNetUserToken> AspNetUserTokens { get; set; }
-        public virtual ICollection<Employee> Employees { get; set; }
 
         public virtual ICollection<AspNetRole> Roles { get; set; }
     }

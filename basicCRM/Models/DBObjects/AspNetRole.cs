@@ -8,7 +8,6 @@ namespace basicCRM.Models.DBObjects
         public AspNetRole()
         {
             AspNetRoleClaims = new HashSet<AspNetRoleClaim>();
-            Employees = new HashSet<Employee>();
             Users = new HashSet<AspNetUser>();
         }
 
@@ -18,7 +17,6 @@ namespace basicCRM.Models.DBObjects
         public string? ConcurrencyStamp { get; set; }
 
         public virtual ICollection<AspNetRoleClaim> AspNetRoleClaims { get; set; }
-        public virtual ICollection<Employee> Employees { get; set; }
 
         public virtual ICollection<AspNetUser> Users { get; set; }
     }

@@ -9,14 +9,12 @@ namespace basicCRM.Repository
     public class OpportunityRepository
     {
         private readonly ApplicationDbContext _DBContext;
-        private EmployeeRepository _employeeRepository;
-        private CustomerRepository _customerRepository;
+
 
         public OpportunityRepository()
         {
             _DBContext = new ApplicationDbContext();
-            _employeeRepository = new EmployeeRepository();
-            _customerRepository = new CustomerRepository();
+
         }
 
         public OpportunityRepository(ApplicationDbContext dbContext)

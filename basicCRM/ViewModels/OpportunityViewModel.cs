@@ -10,12 +10,12 @@ namespace basicCRM.ViewModels
         public string Name { get; set; } = null!;
         public Guid Idcustomer { get; set; }
 
-        public string CommodityType { get; set; } = null!;
+        public string? CommodityType { get; set; } = null!;
         public Guid Idowner { get; set; }
-        public DateTime ValidFrom { get; set; }
-        public DateTime ValidTo { get; set; }
+        public DateTime? ValidFrom { get; set; }
+        public DateTime? ValidTo { get; set; }
 
-        public string Status { get; set; } = null!;
+        public string? Status { get; set; } = null!;
 
         public string EmployeeName { get; set; }
         public string CustomerName { get; set; }

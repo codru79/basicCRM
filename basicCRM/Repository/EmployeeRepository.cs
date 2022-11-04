@@ -25,8 +25,7 @@ namespace basicCRM.Repository
             model.Name = dbobject.Name;
             model.Email = dbobject.Email;
             model.Department = dbobject.Department;
-            model.IduserLogin = dbobject.IduserLogin;
-            model.Idrole = dbobject.Idrole;
+            model.Role=dbobject.Role;
             return model;
         }
         public Employee MapModelToDBObject(EmployeeModel model)
@@ -36,8 +35,7 @@ namespace basicCRM.Repository
             dbobject.Name=model.Name;
             dbobject.Email = model.Email;
             dbobject.Department = model.Department;
-            dbobject.IduserLogin = model.IduserLogin;
-            dbobject.Idrole = model.Idrole;
+            dbobject.Role=model.Role;
             return dbobject;
         }
 
@@ -72,8 +70,7 @@ namespace basicCRM.Repository
                 dbobject.Name = model.Name;
                 dbobject.Email = model.Email;
                 dbobject.Department = model.Department;
-                dbobject.IduserLogin = model.IduserLogin;
-                dbobject.Idrole = model.Idrole;
+                dbobject.Role=model.Role;
             }
         }
 
