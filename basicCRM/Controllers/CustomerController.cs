@@ -97,12 +97,8 @@ namespace basicCRM.Controllers
         {
             try
             {
-                var model = new CustomerModel();
-                var task = TryUpdateModelAsync(model);
-                if (task.Result)
-                {
-                    _customerRepository.DeleteCustomer(id);
-                }
+
+                _customerRepository.DeleteCustomer(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

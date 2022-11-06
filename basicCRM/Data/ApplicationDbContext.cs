@@ -256,7 +256,7 @@ namespace basicCRM.Data
 
                 entity.Property(e => e.Idcustomer).HasColumnName("IDCustomer");
 
-                entity.Property(e => e.Idowner).HasColumnName("IDOwner");
+                entity.Property(e => e.Idemployee).HasColumnName("IDEmployee");
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(250)
@@ -276,9 +276,9 @@ namespace basicCRM.Data
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Opportunities_Customers");
 
-                entity.HasOne(d => d.IdownerNavigation)
+                entity.HasOne(d => d.IdemployeeNavigation)
                     .WithMany(p => p.Opportunities)
-                    .HasForeignKey(d => d.Idowner)
+                    .HasForeignKey(d => d.Idemployee)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Opportunities_Employees");
             });

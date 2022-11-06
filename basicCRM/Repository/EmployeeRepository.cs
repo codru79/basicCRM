@@ -20,7 +20,7 @@ namespace basicCRM.Repository
 
         public EmployeeModel MapDBObjectToModel(Employee dbobject)
         { 
-        var model = new EmployeeModel();
+            var model = new EmployeeModel();
             model.Idemployee = dbobject.Idemployee;
             model.Name = dbobject.Name;
             model.Email = dbobject.Email;
@@ -30,7 +30,7 @@ namespace basicCRM.Repository
         }
         public Employee MapModelToDBObject(EmployeeModel model)
         { 
-        var dbobject = new Employee();
+            var dbobject = new Employee();
             dbobject.Idemployee=model.Idemployee;
             dbobject.Name=model.Name;
             dbobject.Email = model.Email;

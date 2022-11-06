@@ -1,26 +1,47 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using basicCRM.Data;
+using basicCRM.Repository;
+using basicCRM.ViewModels;
+using basicCRM.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace basicCRM.Controllers
 {
     public class ContactPersonController : Controller
     {
+        private ContactPersonRepository _contactpersonRepository;
+        private CustomerRepository _customerRepository;
+
+        public ContactPersonController(ApplicationDbContext dbcontext)
+        {
+            _contactpersonRepository = new ContactPersonRepository(dbcontext);
+            _customerRepository = new CustomerRepository(dbcontext);    
+        }
         // GET: ContactPersonController
         public ActionResult Index()
         {
-            return View();
+            var list = _contactpersonRepository.GetAllContactPersons();
+            var viewmodellist = new List<ContactPersonViewModel>();
+            foreach (var contactperson in list)
+            {
+                viewmodellist.Add(new ContactPersonViewModel(contactperson, _customerRepository));
+            }
+            return View(viewmodellist);
         }
 
         // GET: ContactPersonController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            var model = _contactpersonRepository.GetContactPersonById(id);
+            var viewmodel = new ContactPersonViewModel(model, _customerRepository);
+            return View("DetailsContactPerson",viewmodel);
         }
 
         // GET: ContactPersonController/Create
         public ActionResult Create()
         {
-            return View();
+            var viewmodel = new ContactPersonViewModelExtended(new ContactPersonModel(), _customerRepository);
+            return View("CreateContactPerson",viewmodel);
         }
 
         // POST: ContactPersonController/Create
@@ -30,53 +51,69 @@ namespace basicCRM.Controllers
         {
             try
             {
+                var model = new ContactPersonModel();
+                var task = TryUpdateModelAsync(model);
+                if (task.Result)
+                {
+                    _contactpersonRepository.InsertContactPerson(model);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View("CreateContactPerson");
             }
         }
 
         // GET: ContactPersonController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            var model = _contactpersonRepository.GetContactPersonById(id);
+            var viewmodel = new ContactPersonViewModelExtended(model, _customerRepository);
+            return View("EditContactPerson",viewmodel);
         }
 
         // POST: ContactPersonController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Guid id, IFormCollection collection)
         {
             try
             {
+                var model = new ContactPersonModel();
+                var task = TryUpdateModelAsync(model);
+                if (task.Result)
+                { 
+                _contactpersonRepository.UpdateContactPerson(model);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View("EditContactPerson");
             }
         }
 
         // GET: ContactPersonController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            var model= _contactpersonRepository.GetContactPersonById(id);
+            return View("DeleteContactPerson",model);
         }
 
         // POST: ContactPersonController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Guid id, IFormCollection collection)
         {
             try
             {
+                _contactpersonRepository.DeleteContactPerson(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View("Delete",id);
             }
         }
     }

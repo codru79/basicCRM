@@ -121,7 +121,7 @@ namespace basicCRM.Areas.Identity.Pages.Account
                     var roles = await _userManager.GetRolesAsync(user);
                     if (roles.Contains("User"))
                     {
-                        return RedirectToAction("Index", "CreateCustomer");
+                        return RedirectToAction("Create","Customer");
                     }
                     return LocalRedirect(returnUrl);
                 }

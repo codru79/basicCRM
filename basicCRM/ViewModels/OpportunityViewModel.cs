@@ -1,6 +1,7 @@
 ﻿using basicCRM.Repository;
 using basicCRM.Models;
 using NuGet.Protocol.Core.Types;
+using System.ComponentModel.DataAnnotations;
 
 namespace basicCRM.ViewModels
 {
@@ -11,29 +12,35 @@ namespace basicCRM.ViewModels
         public Guid Idcustomer { get; set; }
 
         public string? CommodityType { get; set; } = null!;
-        public Guid Idowner { get; set; }
+        public Guid Idemployee { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        [DataType(DataType.Date)]
         public DateTime? ValidFrom { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        [DataType(DataType.Date)]
         public DateTime? ValidTo { get; set; }
 
         public string? Status { get; set; } = null!;
 
-        public string EmployeeName { get; set; }
-        public string CustomerName { get; set; }
+        public string Owner { get; set; }
+        public string Customer { get; set; }
 
         public OpportunityViewModel(OpportunityModel model, CustomerRepository crepository, EmployeeRepository erepository)
         { 
-        this.Idopportunity = model.Idopportunity;
+            this.Idopportunity = model.Idopportunity;
             this.Name = model.Name;
             this.Idcustomer = model.Idcustomer;
             this.CommodityType = model.CommodityType;
-            this.Idowner=model.Idowner;
+            this.Idemployee = model.Idemployee;
             this.ValidFrom= model.ValidFrom;
             this.ValidTo= model.ValidTo;
             this.Status = model.Status;
-            var employee = erepository.GetEmployeeById(model.Idowner);
-            this.EmployeeName = employee.Name;
+            var employee = erepository.GetEmployeeById(model.Idemployee);
+            this.Owner = employee.Name;
             var customer = crepository.GetCustomerById(model.Idcustomer);
-            this.CustomerName = customer.Name;
+            this.Customer = customer.Name;
         }
     }
 }

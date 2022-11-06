@@ -41,7 +41,9 @@ namespace basicCRM.Controllers
         // GET: OpportunityController/Details/5
         public ActionResult Details(Guid id)
         {
-            return View("DetailsOpportunity");
+            var model = _opportunityRepository.GetOpportunityByID(id);
+            var viewmodel = new OpportunityViewModel(model, _customerRepository, _employeeRepository);
+            return View("DetailsOpportunity", viewmodel);
         }
 
         // GET: OpportunityController/Create
@@ -50,7 +52,7 @@ namespace basicCRM.Controllers
 
             ViewBag.commoditytypes = lcommoditytype;
             ViewBag.statuses = lstatus;
-            var viewmodel = new OpportunityViewModelCreate(new OpportunityModel(),_customerRepository, _employeeRepository);
+            var viewmodel = new OpportunityViewModelExtended(new OpportunityModel(),_customerRepository, _employeeRepository);
             return View("CreateOpportunity",viewmodel);
         }
 

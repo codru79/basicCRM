@@ -29,10 +29,10 @@
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmployeeName)
+                @Html.DisplayNameFor(model => model.Owner)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerName)
+                @Html.DisplayNameFor(model => model.Customer)
             </th>
             <th></th>
         </tr>
@@ -56,14 +56,14 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EmployeeName)
+                @Html.DisplayFor(modelItem => item.Owner)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
+                @Html.DisplayFor(modelItem => item.Customer)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.Idopportunity }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Idopportunity}) |
+                @Html.ActionLink("Details", "Details", new { id=item.Idopportunity }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.Idopportunity })
             </td>
         </tr>

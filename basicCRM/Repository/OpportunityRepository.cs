@@ -31,7 +31,7 @@ namespace basicCRM.Repository
                 model.Name=dbobject.Name;
                 model.Idcustomer=dbobject.Idcustomer;
                 model.CommodityType = dbobject.CommodityType;
-                model.Idowner=dbobject.Idowner;
+                model.Idemployee = dbobject.Idemployee;
                 model.ValidFrom = dbobject.ValidFrom;
                 model.ValidTo = dbobject.ValidTo;
                 model.Status = dbobject.Status;
@@ -48,7 +48,7 @@ namespace basicCRM.Repository
                 dbobject.Name = model.Name;
                 dbobject.Idcustomer = model.Idcustomer;
                 dbobject.CommodityType = model.CommodityType;
-                dbobject.Idowner = model.Idowner;
+                dbobject.Idemployee = model.Idemployee;
                 dbobject.ValidFrom = model.ValidFrom;
                 dbobject.ValidTo = model.ValidTo;
                 dbobject.Status = model.Status;
@@ -88,7 +88,7 @@ namespace basicCRM.Repository
                 dbobject.Name = model.Name;
                 dbobject.Idcustomer = model.Idcustomer;
                 dbobject.CommodityType = model.CommodityType;
-                dbobject.Idowner = model.Idowner;
+                dbobject.Idemployee = model.Idemployee;
                 dbobject.ValidFrom = model.ValidFrom;
                 dbobject.ValidTo = model.ValidTo;
                 dbobject.Status = model.Status;

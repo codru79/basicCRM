@@ -1,0 +1,49 @@
+﻿@model basicCRM.Models.EmployeeModel
+
+@{
+    ViewData["Title"] = "DetailsEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>DetailsEmployee</h1>
+
+<div>
+    <h4>EmployeeModel</h4>
+    <hr />
+    <dl class="row">
+@*        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Idemployee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Idemployee)
+        </dd>*@
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Idemployee }) |
+    <a asp-action="Index">Back to List</a>
+</div>

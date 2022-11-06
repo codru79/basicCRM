@@ -14,13 +14,13 @@ namespace basicCRM.Models.DBObjects
         public string Name { get; set; } = null!;
         public Guid Idcustomer { get; set; }
         public string? CommodityType { get; set; }
-        public Guid Idowner { get; set; }
+        public Guid Idemployee { get; set; }
         public DateTime? ValidFrom { get; set; }
         public DateTime? ValidTo { get; set; }
         public string? Status { get; set; }
 
         public virtual Customer IdcustomerNavigation { get; set; } = null!;
-        public virtual Employee IdownerNavigation { get; set; } = null!;
+        public virtual Employee IdemployeeNavigation { get; set; } = null!;
         public virtual ICollection<Offer> Offers { get; set; }
     }
 }
