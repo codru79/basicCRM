@@ -21,21 +21,27 @@ namespace basicCRM.Repository
         public EmployeeModel MapDBObjectToModel(Employee dbobject)
         { 
             var model = new EmployeeModel();
-            model.Idemployee = dbobject.Idemployee;
-            model.Name = dbobject.Name;
-            model.Email = dbobject.Email;
-            model.Department = dbobject.Department;
-            model.Role=dbobject.Role;
+            if (dbobject != null)
+            {
+                model.Idemployee = dbobject.Idemployee;
+                model.Name = dbobject.Name;
+                model.Email = dbobject.Email;
+                model.Department = dbobject.Department;
+                model.Role = dbobject.Role;
+            }
             return model;
         }
         public Employee MapModelToDBObject(EmployeeModel model)
         { 
             var dbobject = new Employee();
-            dbobject.Idemployee=model.Idemployee;
-            dbobject.Name=model.Name;
-            dbobject.Email = model.Email;
-            dbobject.Department = model.Department;
-            dbobject.Role=model.Role;
+            if (model != null)
+            {
+                dbobject.Idemployee = model.Idemployee;
+                dbobject.Name = model.Name;
+                dbobject.Email = model.Email;
+                dbobject.Department = model.Department;
+                dbobject.Role = model.Role;
+            }
             return dbobject;
         }
 

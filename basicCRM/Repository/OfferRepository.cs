@@ -20,27 +20,33 @@ namespace basicCRM.Repository
 
         public OfferModel MapDBObjectToModel(Offer dbobject)
         { 
-        var model = new OfferModel();
-            model.Idoffer = dbobject.Idoffer;
-            model.Idopportunity=dbobject.Idopportunity;
-            model.Idowner=dbobject.Idowner;
-            model.OfferType=dbobject.OfferType;
-            model.CreatedDate=dbobject.CreatedDate;
-            model.ExpireDate=dbobject.ExpireDate;
-            model.ValueMwh = dbobject.ValueMwh;
+            var model = new OfferModel();
+            if (dbobject != null)
+            {
+                model.Idoffer = dbobject.Idoffer;
+                model.Idopportunity = dbobject.Idopportunity;
+                model.Idowner = dbobject.Idowner;
+                model.OfferType = dbobject.OfferType;
+                model.CreatedDate = dbobject.CreatedDate;
+                model.ExpireDate = dbobject.ExpireDate;
+                model.ValueMwh = dbobject.ValueMwh;
+            }
             return model;
         }
 
         public Offer MapModelToDBObject(OfferModel model)
         { 
-        var dbobject = new Offer();
-            dbobject.Idoffer = model.Idoffer;
-            dbobject.Idopportunity = model.Idopportunity;
-            dbobject.Idowner = model.Idowner;
-            dbobject.OfferType = model.OfferType;
-            dbobject.CreatedDate = model.CreatedDate;
-            dbobject.ExpireDate = model.ExpireDate;
-            dbobject.ValueMwh = model.ValueMwh;
+            var dbobject = new Offer();
+            if (model != null)
+            {
+                dbobject.Idoffer = model.Idoffer;
+                dbobject.Idopportunity = model.Idopportunity;
+                dbobject.Idowner = model.Idowner;
+                dbobject.OfferType = model.OfferType;
+                dbobject.CreatedDate = model.CreatedDate;
+                dbobject.ExpireDate = model.ExpireDate;
+                dbobject.ValueMwh = model.ValueMwh;
+            }
             return dbobject;
         }
 

@@ -21,12 +21,15 @@ namespace basicCRM.Repository
 
         public ContactPerson MapModelToDBObject(ContactPersonModel model)
         { 
-        var dbobject = new ContactPerson();
-            dbobject.IdcontactPerson = model.IdcontactPerson;
-            dbobject.Name = model.Name;
-            dbobject.Email = model.Email;
-            dbobject.Phone = model.Phone;
-            dbobject.Idcustomer = model.Idcustomer;
+            var dbobject = new ContactPerson();
+            if (model != null)
+            {
+                dbobject.IdcontactPerson = model.IdcontactPerson;
+                dbobject.Name = model.Name;
+                dbobject.Email = model.Email;
+                dbobject.Phone = model.Phone;
+                dbobject.Idcustomer = model.Idcustomer;
+            }
             return dbobject;
         }
 
@@ -34,11 +37,14 @@ namespace basicCRM.Repository
         public ContactPersonModel MapDBObjectToModel(ContactPerson dbobject)
         {
             var model = new ContactPersonModel();
-            model.IdcontactPerson = dbobject.IdcontactPerson;
-            model.Name = dbobject.Name;
-            model.Email = dbobject.Email;
-            model.Phone = dbobject.Phone;
-            model.Idcustomer = dbobject.Idcustomer;
+            if (dbobject != null)
+            {
+                model.IdcontactPerson = dbobject.IdcontactPerson;
+                model.Name = dbobject.Name;
+                model.Email = dbobject.Email;
+                model.Phone = dbobject.Phone;
+                model.Idcustomer = dbobject.Idcustomer;
+            }
             return model;
         }
 
@@ -59,7 +65,7 @@ namespace basicCRM.Repository
 
         public void InsertContactPerson(ContactPersonModel model)
         { 
-        model.IdcontactPerson=Guid.NewGuid();
+            model.IdcontactPerson=Guid.NewGuid();
             _DBContext.ContactPersons.Add(MapModelToDBObject(model));
             _DBContext.SaveChanges();
         }

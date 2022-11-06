@@ -21,20 +21,26 @@ namespace basicCRM.Repository
         public Customer MapModelToDBObject(CustomerModel model)
         {
             var dbobject = new Customer();
-            dbobject.Idcustomer = model.Idcustomer;
-            dbobject.Name=model.Name;
-            dbobject.Adress=model.Adress;
-            dbobject.AddedDate=model.AddedDate;
+            if (model != null)
+            {
+                dbobject.Idcustomer = model.Idcustomer;
+                dbobject.Name = model.Name;
+                dbobject.Adress = model.Adress;
+                dbobject.AddedDate = model.AddedDate;
+            }
             return dbobject;
         }
 
         public CustomerModel MapDBObjectToModel(Customer dbobject)
         {
             var model = new CustomerModel();
-            model.Idcustomer = dbobject.Idcustomer;
-            model.Name = dbobject.Name;
-            model.Adress = dbobject.Adress;
-            model.AddedDate = dbobject.AddedDate;
+            if (dbobject != null)
+            {
+                model.Idcustomer = dbobject.Idcustomer;
+                model.Name = dbobject.Name;
+                model.Adress = dbobject.Adress;
+                model.AddedDate = dbobject.AddedDate;
+            }
             return model;
         }
 

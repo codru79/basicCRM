@@ -31,13 +31,13 @@
             <div class="form-group">
                 <label asp-for="Department" class="control-label"></label>
                 <input asp-for="Department" class="form-control" />
-                @Html.DropDownList("Department", new SelectList(ViewBag.departments, "Value", "Text")), "", new{class="form-control"}
+                @Html.DropDownList("Department", new SelectList(ViewBag.departments, "","")) <class="form-control"/>
                 <span asp-validation-for="Department" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Role" class="control-label"></label>
                 <input asp-for="Role" class="form-control" />
-                @Html.DropDownList("Role", new SelectList(ViewBag.roles, "Value", "Text")), "", new{class="form-control"}
+                @Html.DropDownList("Role", new SelectList(ViewBag.roles,"", "")) <class="form-control"/>
                 <span asp-validation-for="Role" class="text-danger"></span>
             </div>
             <div class="form-group">
