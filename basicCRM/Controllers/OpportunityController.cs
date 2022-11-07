@@ -112,7 +112,8 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model= _opportunityRepository.GetOpportunityByID(id);
-            return View("DeleteOpportunity",model);
+            var viewmodel = new OpportunityViewModel(model, _customerRepository, _employeeRepository);
+            return View("DeleteOpportunity",viewmodel);
         }
 
         // POST: OpportunityController/Delete/5

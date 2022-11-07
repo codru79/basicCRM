@@ -1,6 +1,7 @@
 ﻿using basicCRM.Data;
 using basicCRM.Models;
 using basicCRM.Models.DBObjects;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace basicCRM.Repository
@@ -80,6 +81,7 @@ namespace basicCRM.Repository
                 dbobject.Email = model.Email;
                 dbobject.Phone = model.Phone;
                 dbobject.Idcustomer = model.Idcustomer;
+                _DBContext.SaveChanges();
             }
         }
 

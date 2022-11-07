@@ -43,6 +43,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFBlcnNvblxDcmVhdGVDb250YWN0UGVyc29uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/ContactPerson/DeleteContactPerson.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFBlcnNvblxEZWxldGVDb250YWN0UGVyc29uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/codrut3/source/repos/basicCRM/basicCRM/Views/ContactPerson/DetailsContactPerson.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFBlcnNvblxEZXRhaWxzQ29udGFjdFBlcnNvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

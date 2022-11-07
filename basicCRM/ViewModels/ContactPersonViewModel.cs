@@ -20,7 +20,7 @@ namespace basicCRM.ViewModels
             this.Email = model.Email;
             this.Phone = model.Phone;
             this.Idcustomer=model.Idcustomer;
-            var customer = repository.GetCustomerById(model.IdcontactPerson);
+            var customer = repository.GetCustomerById(model.Idcustomer);
             this.Customer = customer.Name;
 
 

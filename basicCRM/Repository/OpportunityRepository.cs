@@ -92,6 +92,7 @@ namespace basicCRM.Repository
                 dbobject.ValidFrom = model.ValidFrom;
                 dbobject.ValidTo = model.ValidTo;
                 dbobject.Status = model.Status;
+                _DBContext.SaveChanges();
 
             }
         }

@@ -85,6 +85,7 @@ namespace basicCRM.Repository
                 dbobject.CreatedDate = model.CreatedDate;
                 dbobject.ExpireDate = model.ExpireDate;
                 dbobject.ValueMwh = model.ValueMwh;
+                _DBContext.SaveChanges();
             }
         }
         public void DeleteOffer(Guid id)

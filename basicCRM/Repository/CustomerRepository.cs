@@ -76,6 +76,7 @@ namespace basicCRM.Repository
                 dbobject.Name = model.Name;
                 dbobject.Adress = model.Adress;
                 dbobject.AddedDate = model.AddedDate;
+                _DBContext.SaveChanges();
             }
         }
 

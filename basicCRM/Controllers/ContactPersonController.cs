@@ -98,7 +98,8 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model= _contactpersonRepository.GetContactPersonById(id);
-            return View("DeleteContactPerson",model);
+            var viewmodel = new ContactPersonViewModel(model, _customerRepository);
+            return View("DeleteContactPerson",viewmodel);
         }
 
         // POST: ContactPersonController/Delete/5

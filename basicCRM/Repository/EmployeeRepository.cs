@@ -77,6 +77,7 @@ namespace basicCRM.Repository
                 dbobject.Email = model.Email;
                 dbobject.Department = model.Department;
                 dbobject.Role=model.Role;
+                _DBContext.SaveChanges();
             }
         }
 

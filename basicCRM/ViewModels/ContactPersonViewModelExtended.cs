@@ -8,7 +8,8 @@ namespace basicCRM.ViewModels
         public List<CustomerModel> Customers { get; set; }
         public ContactPersonViewModelExtended(ContactPersonModel model, CustomerRepository repository) : base(model, repository)
         { 
-        this.Customers= repository.GetAllCustomers();
+        
+            this.Customers= repository.GetAllCustomers();
         }
     }
 }

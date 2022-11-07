@@ -28,7 +28,7 @@ namespace basicCRM.Controllers
         // GET: EmployeeController/Details/5
         public ActionResult Details(Guid id)
         {
-            var model = new EmployeeModel();
+        var model = _employeeRepository.GetEmployeeById(id);
             return View("DetailsEmployee",model);
         }
 
@@ -78,7 +78,7 @@ namespace basicCRM.Controllers
             try
             {
                 var model = new EmployeeModel();
-                var task= TryUpdateModelAsync(model);
+                var task = TryUpdateModelAsync(model);
                 if (task.Result)
                 {
                     _employeeRepository.UpdateEmployee(model);
