@@ -71,6 +71,7 @@ namespace basicCRM.Controllers
             {
                 var model = new CustomerModel();
                 var task = TryUpdateModelAsync(model);
+                model.Idcustomer= id;
                 if (task.Result)
                 {
                     _customerRepository.UpdateCustomer(model);

@@ -82,6 +82,7 @@ namespace basicCRM.Controllers
             {
                 var model = new ContactPersonModel();
                 var task = TryUpdateModelAsync(model);
+                model.IdcontactPerson=id;
                 if (task.Result)
                 { 
                 _contactpersonRepository.UpdateContactPerson(model);

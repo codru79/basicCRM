@@ -49,6 +49,7 @@ namespace basicCRM.Controllers
             {
                 var model = new EmployeeModel();
                 var task = TryUpdateModelAsync(model);
+                task.Wait();
                 if (task.Result)
                 { 
                 _employeeRepository.InsertEmployee(model);
@@ -79,6 +80,8 @@ namespace basicCRM.Controllers
             {
                 var model = new EmployeeModel();
                 var task = TryUpdateModelAsync(model);
+                model.Idemployee = id;
+                task.Wait();
                 if (task.Result)
                 {
                     _employeeRepository.UpdateEmployee(model);

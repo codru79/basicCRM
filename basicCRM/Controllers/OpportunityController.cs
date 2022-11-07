@@ -83,7 +83,8 @@ namespace basicCRM.Controllers
             ViewBag.commoditytypes = lcommoditytype;
             ViewBag.statuses = lstatus;
             var model = _opportunityRepository.GetOpportunityByID(id);
-            return View("EditOpportunity",model);
+            var viewmodel = new OpportunityViewModelExtended(model, _customerRepository, _employeeRepository);  
+            return View("EditOpportunity",viewmodel);
         }
 
         // POST: OpportunityController/Edit/5
@@ -95,6 +96,7 @@ namespace basicCRM.Controllers
             {
                 var model = new OpportunityModel();
                 var task = TryUpdateModelAsync(model);
+                model.Idopportunity=id;
                 if (task.Result)
                 {
                     _opportunityRepository.UpdateOpportunity(model);
