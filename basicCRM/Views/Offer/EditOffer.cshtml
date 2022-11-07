@@ -1,0 +1,85 @@
+﻿@model basicCRM.ViewModels.OfferViewModelExtended
+
+@{
+    ViewData["Title"] = "EditOffer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>EditOffer</h1>
+
+<h4>OfferViewModelExtended</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditOffer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@*            <div class="form-group">
+                <label asp-for="Idoffer" class="control-label"></label>
+                <input asp-for="Idoffer" class="form-control" />
+                <span asp-validation-for="Idoffer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idopportunity" class="control-label"></label>
+                <input asp-for="Idopportunity" class="form-control" />
+                <span asp-validation-for="Idopportunity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idowner" class="control-label"></label>
+                <input asp-for="Idowner" class="form-control" />
+                <span asp-validation-for="Idowner" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="OfferType" class="control-label"></label>
+                @*<input asp-for="OfferType" class="form-control" />*@
+                @Html.DropDownList("OfferType", new SelectList(ViewBag.offertypes, "", ""),"",new{@class="form-control"})
+                @*<span asp-validation-for="OfferType" class="text-danger"></span>*@
+            </div>
+@*            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="ExpireDate" class="control-label"></label>
+                <input asp-for="ExpireDate" class="form-control" />
+                <span asp-validation-for="ExpireDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValueMwh" class="control-label"></label>
+                <input asp-for="ValueMwh" class="form-control" />
+                <span asp-validation-for="ValueMwh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner" class="control-label"></label>
+                <select asp-for="Owner" class="form-control" />
+                @foreach (var obj in Model.Employees)
+                {
+                            <option value="@obj.Idemployee">@obj.Name</option>
+                }
+                </select>
+                <span asp-validation-for="Owner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opportunity" class="control-label"></label>
+                <select asp-for="Opportunity" class="form-control" />
+                @foreach (var obj in Model.Opportunities)
+                {
+                        <option value="@obj.Idopportunity">@obj.Name</option>
+                }
+                </select>
+                <span asp-validation-for="Opportunity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
