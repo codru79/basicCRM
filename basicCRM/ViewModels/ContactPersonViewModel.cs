@@ -23,7 +23,6 @@ namespace basicCRM.ViewModels
             var customer = repository.GetCustomerById(model.Idcustomer);
             this.Customer = customer.Name;
 
-
         }
     }
 }
