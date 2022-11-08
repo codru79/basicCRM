@@ -60,7 +60,7 @@ namespace basicCRM.Controllers
                 var task = TryUpdateModelAsync(model);
                 if (task.Result)
                 {
-                    _offerRepository.UpdateOffer(model);
+                    _offerRepository.InsertOffer(model);
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -75,7 +75,8 @@ namespace basicCRM.Controllers
         {
             ViewBag.offertypes = loffertypes;
             var model = _offerRepository.GetOfferById(id);
-            return View("EditOffer",model);
+            var viewmodel = new OfferViewModelExtended(model, _opportunityRepository, _employeeRepository); 
+            return View("EditOffer",viewmodel);
         }
 
         // POST: OfferController/Edit/5
@@ -87,6 +88,7 @@ namespace basicCRM.Controllers
             {
                 var model = new OfferModel();
                 var task = TryUpdateModelAsync(model);
+                model.Idoffer=id;
                 if (task.Result)
                 {
                     _offerRepository.UpdateOffer(model);
@@ -103,7 +105,8 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model = _offerRepository.GetOfferById(id);
-            return View("DeleteOffer",model);
+            var viewmodel= new OfferViewModelExtended(model, _opportunityRepository, _employeeRepository);
+            return View("DeleteOffer",viewmodel);
         }
 
         // POST: OfferController/Delete/5
