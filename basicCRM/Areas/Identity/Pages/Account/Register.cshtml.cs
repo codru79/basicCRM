@@ -124,7 +124,7 @@ namespace basicCRM.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    string rolename = "User";
+                    string rolename = "Sales";
                     if (null != _roleManager.FindByNameAsync(rolename).Result)
                     {
                         await _userManager.AddToRoleAsync(user, rolename);

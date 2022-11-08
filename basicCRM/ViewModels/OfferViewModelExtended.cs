@@ -8,6 +8,7 @@ namespace basicCRM.ViewModels
         public List<OpportunityModel> Opportunities { get; set; }
         public List<EmployeeModel> Employees { get; set; }
 
+        
 
         public OfferViewModelExtended(OfferModel model, OpportunityRepository orepository, EmployeeRepository erepository) : base(model, orepository, erepository)
         { 

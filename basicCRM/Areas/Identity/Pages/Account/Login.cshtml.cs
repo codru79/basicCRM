@@ -119,9 +119,13 @@ namespace basicCRM.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
                     var user = await _userManager.FindByEmailAsync(Input.Email);
                     var roles = await _userManager.GetRolesAsync(user);
-                    if (roles.Contains("User"))
+                    if (roles.Contains("Sales"))
                     {
-                        return RedirectToAction("Create","Customer");
+                        return RedirectToAction("Index", "Opportunity");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Customer");
                     }
                     return LocalRedirect(returnUrl);
                 }

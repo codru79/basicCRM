@@ -1,12 +1,14 @@
 ﻿using basicCRM.Data;
 using basicCRM.Models;
 using basicCRM.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.NetworkInformation;
 
 namespace basicCRM.Controllers
 {
+    [Authorize(Roles ="HeadOfSales")]
     public class EmployeeController : Controller
     {
         private EmployeeRepository _employeeRepository;

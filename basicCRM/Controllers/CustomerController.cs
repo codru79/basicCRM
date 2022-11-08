@@ -3,6 +3,7 @@ using basicCRM.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using basicCRM.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace basicCRM.Controllers
 {
@@ -29,6 +30,7 @@ namespace basicCRM.Controllers
         }
 
         // GET: CustomerController/Create
+        [Authorize (Roles ="AccountManager")]
         public ActionResult Create()
         {
             return View("CreateCustomer");
@@ -37,6 +39,7 @@ namespace basicCRM.Controllers
         // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "AccountManager")]
         public ActionResult Create(IFormCollection collection)
         {
             try
@@ -56,6 +59,7 @@ namespace basicCRM.Controllers
         }
 
         // GET: CustomerController/Edit/5
+        [Authorize(Roles = "AccountManager")]
         public ActionResult Edit(Guid id)
         {
             var model =_customerRepository.GetCustomerById(id);
@@ -65,6 +69,7 @@ namespace basicCRM.Controllers
         // POST: CustomerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "AccountManager")]
         public ActionResult Edit(Guid id, IFormCollection collection)
         {
             try
