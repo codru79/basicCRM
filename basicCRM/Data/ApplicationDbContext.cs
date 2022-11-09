@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using basicCRM.Models.DBObjects;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace basicCRM.Data
 {
-    public partial class ApplicationDbContext : DbContext
+    public partial class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext()
         {
@@ -28,6 +30,7 @@ namespace basicCRM.Data
         public virtual DbSet<Employee> Employees { get; set; } = null!;
         public virtual DbSet<Offer> Offers { get; set; } = null!;
         public virtual DbSet<Opportunity> Opportunities { get; set; } = null!;
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

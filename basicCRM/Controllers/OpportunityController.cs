@@ -4,6 +4,8 @@ using basicCRM.Repository;
 using basicCRM.Data;
 using basicCRM.Models;
 using basicCRM.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace basicCRM.Controllers
 {
@@ -109,7 +111,7 @@ namespace basicCRM.Controllers
                 return View("EditOpportunity");
             }
         }
-
+        [Authorize(Roles = "HeadOfSales,AccountManager")]
         // GET: OpportunityController/Delete/5
         public ActionResult Delete(Guid id)
         {
@@ -118,6 +120,7 @@ namespace basicCRM.Controllers
             return View("DeleteOpportunity",viewmodel);
         }
 
+        [Authorize(Roles = "HeadOfSales,AccountManager")]
         // POST: OpportunityController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
