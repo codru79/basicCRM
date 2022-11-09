@@ -33,7 +33,13 @@ namespace basicCRM.Controllers
         [Authorize (Roles ="AccountManager")]
         public ActionResult Create()
         {
-            return View("CreateCustomer");
+            var model = new CustomerModel();
+            if(User.Identity.IsAuthenticated)
+            {
+                model.CreatedBy = User.Identity.Name;   
+
+            }
+            return View("CreateCustomer",model);
         }
 
         // POST: CustomerController/Create

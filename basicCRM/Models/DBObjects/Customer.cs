@@ -15,6 +15,7 @@ namespace basicCRM.Models.DBObjects
         public string Name { get; set; } = null!;
         public string Adress { get; set; } = null!;
         public DateTime AddedDate { get; set; }
+        public string? CreatedBy { get; set; }
 
         public virtual ICollection<ContactPerson> ContactPeople { get; set; }
         public virtual ICollection<Opportunity> Opportunities { get; set; }

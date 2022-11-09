@@ -11,5 +11,7 @@ namespace basicCRM.Models
         [DisplayFormat(DataFormatString = "{0:d}")]
         [DataType(DataType.Date)]
         public DateTime AddedDate { get; set; }
+
+        public string? CreatedBy { get; set; }
     }
 }

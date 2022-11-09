@@ -27,6 +27,7 @@ namespace basicCRM.Repository
                 dbobject.Name = model.Name;
                 dbobject.Adress = model.Adress;
                 dbobject.AddedDate = model.AddedDate;
+                dbobject.CreatedBy=model.CreatedBy;
             }
             return dbobject;
         }
@@ -40,6 +41,7 @@ namespace basicCRM.Repository
                 model.Name = dbobject.Name;
                 model.Adress = dbobject.Adress;
                 model.AddedDate = dbobject.AddedDate;
+                model.CreatedBy = dbobject.CreatedBy;   
             }
             return model;
         }
@@ -76,6 +78,7 @@ namespace basicCRM.Repository
                 dbobject.Name = model.Name;
                 dbobject.Adress = model.Adress;
                 dbobject.AddedDate = model.AddedDate;
+                dbobject.CreatedBy = model.CreatedBy;
                 _DBContext.SaveChanges();
             }
         }

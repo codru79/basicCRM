@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using basicCRM.Models.DBObjects;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace basicCRM.Data
 {
-    public partial class ApplicationDbContext : IdentityDbContext
+    public partial class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext()
         {
@@ -173,6 +172,10 @@ namespace basicCRM.Data
                 entity.Property(e => e.AddedDate).HasColumnType("date");
 
                 entity.Property(e => e.Adress).IsUnicode(false);
+
+                entity.Property(e => e.CreatedBy)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(250)
