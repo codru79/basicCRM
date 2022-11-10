@@ -28,16 +28,16 @@
                 <input asp-for="Adress" class="form-control" />
                 <span asp-validation-for="Adress" class="text-danger"></span>
             </div>
-@*            <div class="form-group">
-                <label asp-for="AddedDate" class="control-label"></label>
-                <input asp-for="AddedDate" class="form-control" />
+            <div class="form-group">
+                @*<label asp-for="AddedDate" class="control-label"></label>*@
+                <input asp-for="AddedDate" hidden class="form-control" />
                 <span asp-validation-for="AddedDate" class="text-danger"></span>
-            </div>*@
-@*            <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
+            </div>
+            <div class="form-group">
+                @*<label asp-for="CreatedBy" class="control-label"></label>*@
+                <input asp-for="CreatedBy" hidden class="form-control" />
                 <span asp-validation-for="CreatedBy" class="text-danger"></span>
-            </div>*@
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

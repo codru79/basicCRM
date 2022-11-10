@@ -9,6 +9,7 @@ using System.Data;
 
 namespace basicCRM.Controllers
 {
+    [Authorize(Roles = "HeadOfSales,Sales,AccountManager")]
     public class OpportunityController : Controller
     {
 

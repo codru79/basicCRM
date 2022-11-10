@@ -8,8 +8,10 @@ using Microsoft.AspNetCore.Identity;
 
 namespace basicCRM.Controllers
 {
+    [Authorize(Roles = "HeadOfSales,Sales,AccountManager")]
     public class CustomerController : Controller
     {
+       
         private CustomerRepository _customerRepository;
 
         public CustomerController(ApplicationDbContext dbcontext)
@@ -46,7 +48,7 @@ namespace basicCRM.Controllers
         // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "AccountManager")]
+       
         public ActionResult Create(IFormCollection collection)
         {
             try
@@ -66,7 +68,7 @@ namespace basicCRM.Controllers
         }
 
         // GET: CustomerController/Edit/5
-        [Authorize(Roles = "AccountManager")]
+       
         public ActionResult Edit(Guid id)
         {
             var model =_customerRepository.GetCustomerById(id);
@@ -76,7 +78,7 @@ namespace basicCRM.Controllers
         // POST: CustomerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "AccountManager")]
+        
         public ActionResult Edit(Guid id, IFormCollection collection)
         {
             try

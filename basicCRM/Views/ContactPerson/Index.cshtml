@@ -8,7 +8,10 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    @if (User.IsInRole("AccountManager,Sales"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
 </p>
 <table class="table">
     <thead>
@@ -44,10 +47,16 @@
                 @Html.DisplayFor(modelItem => item.Customer)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.IdcontactPerson }) |
+               @if (User.IsInRole("AccountManager"))
+                 {
+                @Html.ActionLink("Edit", "Edit", new { id=item.IdcontactPerson }) ;
+                 }
                     @Html.ActionLink("Details", "Details", new { id=item.IdcontactPerson}) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.IdcontactPerson})
-            </td>
+                 @if (User.IsInRole("AccountManager"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id=item.IdcontactPerson})
+                    }
+                </td>
         </tr>
 }
     </tbody>

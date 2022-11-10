@@ -1,9 +1,12 @@
 ﻿using basicCRM.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Diagnostics;
 
 namespace basicCRM.Controllers
 {
+    [Authorize(Roles = "HeadOfSales,Sales,AccountManager")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

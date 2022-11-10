@@ -4,9 +4,12 @@ using basicCRM.ViewModels;
 using basicCRM.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace basicCRM.Controllers
 {
+    [Authorize(Roles = "HeadOfSales,Sales,AccountManager")]
     public class ContactPersonController : Controller
     {
         private ContactPersonRepository _contactpersonRepository;
