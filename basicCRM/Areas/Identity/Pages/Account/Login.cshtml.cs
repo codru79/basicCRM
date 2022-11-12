@@ -125,9 +125,16 @@ namespace basicCRM.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Customer");
+                        if (roles.Contains("AccountManager"))
+                        {
+                            return RedirectToAction("Index", "Customer");
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Employee");
+                        }
                     }
-                    return LocalRedirect(returnUrl);
+                    //return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
                 {
