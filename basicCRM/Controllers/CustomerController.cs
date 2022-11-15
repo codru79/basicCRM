@@ -29,11 +29,6 @@ namespace basicCRM.Controllers
         public ActionResult Details(Guid id)
         {
             var model = _customerRepository.GetCustomerById(id);
-            if (User.Identity.IsAuthenticated)
-            {
-                model.CreatedBy = User.Identity.Name;
-
-            }
             return View("DetailsCustomer",model);
         }
 
@@ -107,11 +102,6 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model = _customerRepository.GetCustomerById(id);
-            if (User.Identity.IsAuthenticated)
-            {
-                model.CreatedBy = User.Identity.Name;
-
-            }
             return View("DeleteCustomer",model);
         }
 
