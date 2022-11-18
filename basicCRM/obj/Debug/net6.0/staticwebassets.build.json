@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oUvDlASL/z8ipNL5BWm4n5YrfATBF51Rj+tXqkbhbos=",
+  "Hash": "szCQthvjDMSddPI7QYLSxSxR9aqtXHscO614b+bAABo=",
   "Source": "basicCRM",
   "BasePath": "_content/basicCRM",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\basicCRM.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\CRM-Mag-Logo.png",
+      "SourceId": "basicCRM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\",
+      "BasePath": "_content/basicCRM",
+      "RelativePath": "CRM-Mag-Logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\CRM-Mag-Logo.png"
     },
     {
       "Identity": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\css\\site.css",

@@ -8,7 +8,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.Role)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Idemployee }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.Idemployee }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.Idemployee })
+                @Html.ActionLink("Edit", "Edit", new { id=item.Idemployee },new {@class="btn btn-success"})
+                @Html.ActionLink("Details", "Details", new { id=item.Idemployee },new {@class="btn btn-info"}) 
+                @Html.ActionLink("Delete", "Delete", new { id=item.Idemployee },new {@class="btn btn-danger"})
             </td>
         </tr>
 }

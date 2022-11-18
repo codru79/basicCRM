@@ -24,10 +24,10 @@ namespace basicCRM.Controllers
         public ActionResult Index()
         {
             var list = _contactpersonRepository.GetAllContactPersons();
-            var viewmodellist = new List<ContactPersonViewModel>();
+            var viewmodellist = new List<ContactPersonViewModelIndexDetails>();
             foreach (var contactperson in list)
             {
-                viewmodellist.Add(new ContactPersonViewModel(contactperson, _customerRepository));
+                viewmodellist.Add(new ContactPersonViewModelIndexDetails(contactperson, _customerRepository));
             }
             return View(viewmodellist);
         }
@@ -36,7 +36,7 @@ namespace basicCRM.Controllers
         public ActionResult Details(Guid id)
         {
             var model = _contactpersonRepository.GetContactPersonById(id);
-            var viewmodel = new ContactPersonViewModel(model, _customerRepository);
+            var viewmodel = new ContactPersonViewModelIndexDetails(model, _customerRepository);
             return View("DetailsContactPerson",viewmodel);
         }
 
@@ -102,7 +102,7 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model= _contactpersonRepository.GetContactPersonById(id);
-            var viewmodel = new ContactPersonViewModel(model, _customerRepository);
+            var viewmodel = new ContactPersonViewModelIndexDetails(model, _customerRepository);
             return View("DeleteContactPerson",viewmodel);
         }
 

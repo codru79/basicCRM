@@ -1,4 +1,4 @@
-﻿@model IEnumerable<basicCRM.ViewModels.ContactPersonViewModel>
+﻿@model IEnumerable<basicCRM.ViewModels.ContactPersonViewModelIndexDetails>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,7 +10,7 @@
 <p>
     @if (User.IsInRole("AccountManager"))
     {
-        <a asp-action="Create">Create New</a>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
     }
 </p>
 <table class="table">
@@ -49,12 +49,14 @@
             <td>
                @if (User.IsInRole("AccountManager"))
                  {
-                @Html.ActionLink("Edit", "Edit", new { id=item.IdcontactPerson }) ;
+                        @Html.ActionLink("Edit", "Edit", new { id=item.IdcontactPerson },new {@class="btn btn-success"})
                  }
-                    @Html.ActionLink("Details", "Details", new { id=item.IdcontactPerson}) |
-                 @if (User.IsInRole("AccountManager"))
+
+                        @Html.ActionLink("Details", "Details", new { id=item.IdcontactPerson},new {@class="btn btn-info"})
+
+               @if (User.IsInRole("AccountManager"))
                     {
-                        @Html.ActionLink("Delete", "Delete", new { id=item.IdcontactPerson})
+                        @Html.ActionLink("Delete", "Delete", new { id=item.IdcontactPerson},new {@class="btn btn-danger"})
                     }
                 </td>
         </tr>

@@ -10,7 +10,7 @@
 <p>
    @if (User.IsInRole("AccountManager"))
     {
-        <a asp-action="Create">Create New</a>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
     }
 </p>
 <table class="table">
@@ -49,12 +49,14 @@
             <td>
                     @if (User.IsInRole("AccountManager"))
                     {
-                @Html.ActionLink("Edit", "Edit", new { id=item.Idcustomer });
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Idcustomer },new {@class="btn btn-success"})
                     }
-                @Html.ActionLink("Details", "Details", new { id=item.Idcustomer }) |
+
+                    @Html.ActionLink("Details", "Details", new { id=item.Idcustomer },new {@class="btn btn-info"})
+
                     @if (User.IsInRole("AccountManager"))
                     {
-                @Html.ActionLink("Delete", "Delete", new { id=item.Idcustomer })
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Idcustomer },new {@class="btn btn-danger"})
                     }
             </td>
         </tr>
