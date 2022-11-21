@@ -13,7 +13,7 @@
         <a class="btn btn-primary" asp-action="Create">Create New</a>
     }
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -49,7 +49,8 @@
             <td>
                @if (User.IsInRole("AccountManager"))
                  {
-                        @Html.ActionLink("Edit", "Edit", new { id=item.IdcontactPerson },new {@class="btn btn-success"})
+                        @Html.ActionLink("Edit", "Edit", new { id=item.IdcontactPerson },new { @class="btn btn-success"})
+                       
                  }
 
                         @Html.ActionLink("Details", "Details", new { id=item.IdcontactPerson},new {@class="btn btn-info"})
