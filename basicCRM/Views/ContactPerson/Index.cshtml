@@ -48,17 +48,31 @@
             </td>
             <td>
                @if (User.IsInRole("AccountManager"))
-                 {
-                        @Html.ActionLink("Edit", "Edit", new { id=item.IdcontactPerson },new { @class="btn btn-success"})
-                       
-                 }
-
-                        @Html.ActionLink("Details", "Details", new { id=item.IdcontactPerson},new {@class="btn btn-info"})
-
-               @if (User.IsInRole("AccountManager"))
                     {
-                        @Html.ActionLink("Delete", "Delete", new { id=item.IdcontactPerson},new {@class="btn btn-danger"})
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.IdcontactPerson},new {@class="btn btn-warning"})*@
+                        <a href="@Url.Action("Edit","ContactPerson",new { id=item.IdcontactPerson})" ,new class="btn btn-outline-warning">
+                            <span>
+                                <img src="~/pencil-square.svg" alt="Edit SVG" />
+                            </span>
+                        </a>
+
                     }
+                    @*@Html.ActionLink("Details", "Details", new { id=item.IdcontactPerson},new {@class="btn btn-info"}) *@
+                    <a href="@Url.Action("Details","ContactPerson",new { id=item.IdcontactPerson})" ,new class="btn btn-outline-info">
+                        <span>
+                            <img src="~/card-heading.svg" alt="Details SVG" />
+                        </span>
+                    </a>
+                    @if (User.IsInRole("AccountManager"))
+                    {
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.IdcontactPerson},new {@class="btn btn-danger"})*@
+                        <a href="@Url.Action("Delete","ContactPerson",new { id=item.IdcontactPerson})" ,new class="btn btn-outline-danger">
+                            <span>
+                                <img src="~/trash.svg" alt="Delete SVG" />
+                            </span>
+                        </a>
+                    }
+
                 </td>
         </tr>
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "szCQthvjDMSddPI7QYLSxSxR9aqtXHscO614b+bAABo=",
+  "Hash": "t1QxHcAMFII8W5t5xkYdsx1fraXJBmK5hayxdJUgbZs=",
   "Source": "basicCRM",
   "BasePath": "_content/basicCRM",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\basicCRM.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\card-heading.svg",
+      "SourceId": "basicCRM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\",
+      "BasePath": "_content/basicCRM",
+      "RelativePath": "card-heading.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\card-heading.svg"
+    },
+    {
       "Identity": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\CRM-Mag-Logo.png",
       "SourceId": "basicCRM",
       "SourceType": "Discovered",
@@ -2106,6 +2123,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\pencil-square.svg",
+      "SourceId": "basicCRM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\",
+      "BasePath": "_content/basicCRM",
+      "RelativePath": "pencil-square.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pencil-square.svg"
+    },
+    {
+      "Identity": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\trash.svg",
+      "SourceId": "basicCRM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\codrut3\\source\\repos\\basicCRM\\basicCRM\\wwwroot\\",
+      "BasePath": "_content/basicCRM",
+      "RelativePath": "trash.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\trash.svg"
     }
   ]
 }
