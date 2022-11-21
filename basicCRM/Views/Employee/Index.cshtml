@@ -44,9 +44,24 @@
                 @Html.DisplayFor(modelItem => item.Role)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Idemployee },new {@class="btn btn-success"})
-                @Html.ActionLink("Details", "Details", new { id=item.Idemployee },new {@class="btn btn-info"}) 
-                @Html.ActionLink("Delete", "Delete", new { id=item.Idemployee },new {@class="btn btn-danger"})
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Idemployee },new {@class="btn btn-success"})*@
+                    <a href="@Url.Action("Edit","Employee",new { id=item.Idemployee})" ,new class="btn btn-outline-warning">
+                        <span>
+                            <img src="~/pencil-square.svg" alt="Edit SVG" />
+                        </span>
+                    </a>
+                @*@Html.ActionLink("Details", "Details", new { id=item.Idemployee },new {@class="btn btn-info"}) *@
+                    <a href="@Url.Action("Details","Employee",new { id=item.Idemployee})" ,new class="btn btn-outline-info">
+                        <span>
+                            <img src="~/card-heading.svg" alt="Details SVG" />
+                        </span>
+                    </a>
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.Idemployee },new {@class="btn btn-danger"})*@
+                    <a href="@Url.Action("Delete","Employee",new { id=item.Idemployee})" ,new class="btn btn-outline-danger">
+                        <span>
+                            <img src="~/trash.svg" alt="Delete SVG" />
+                        </span>
+                    </a>
             </td>
         </tr>
 }
