@@ -32,10 +32,10 @@ namespace basicCRM.Controllers
         public ActionResult Index()
         {
             var list = _opportunityRepository.GetAllOpportunities();
-            var viewmodellist = new List<OpportunityViewModel>();
+            var viewmodellist = new List<OpportunityViewModelIndexDetails>();
             foreach (var opportunity in list)
             {
-                viewmodellist.Add(new OpportunityViewModel(opportunity, _customerRepository,_employeeRepository));
+                viewmodellist.Add(new OpportunityViewModelIndexDetails(opportunity, _customerRepository,_employeeRepository));
             }
 
             return View(viewmodellist);
@@ -45,7 +45,7 @@ namespace basicCRM.Controllers
         public ActionResult Details(Guid id)
         {
             var model = _opportunityRepository.GetOpportunityByID(id);
-            var viewmodel = new OpportunityViewModel(model, _customerRepository, _employeeRepository);
+            var viewmodel = new OpportunityViewModelIndexDetails(model, _customerRepository, _employeeRepository);
             return View("DetailsOpportunity", viewmodel);
         }
 
@@ -55,7 +55,7 @@ namespace basicCRM.Controllers
 
             ViewBag.commoditytypes = lcommoditytype;
             ViewBag.statuses = lstatus;
-            var viewmodel = new OpportunityViewModelExtended(new OpportunityModel(),_customerRepository, _employeeRepository);
+            var viewmodel = new OpportunityViewModelCreateEdit(new OpportunityModel(),_customerRepository, _employeeRepository);
             return View("CreateOpportunity",viewmodel);
         }
 
@@ -86,7 +86,7 @@ namespace basicCRM.Controllers
             ViewBag.commoditytypes = lcommoditytype;
             ViewBag.statuses = lstatus;
             var model = _opportunityRepository.GetOpportunityByID(id);
-            var viewmodel = new OpportunityViewModelExtended(model, _customerRepository, _employeeRepository);  
+            var viewmodel = new OpportunityViewModelCreateEdit(model, _customerRepository, _employeeRepository);  
             return View("EditOpportunity",viewmodel);
         }
 
@@ -117,7 +117,7 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model= _opportunityRepository.GetOpportunityByID(id);
-            var viewmodel = new OpportunityViewModel(model, _customerRepository, _employeeRepository);
+            var viewmodel = new OpportunityViewModelIndexDetails(model, _customerRepository, _employeeRepository);
             return View("DeleteOpportunity",viewmodel);
         }
 

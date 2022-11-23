@@ -1,4 +1,4 @@
-﻿@model basicCRM.ViewModels.OfferViewModelExtended
+﻿@model basicCRM.ViewModels.OfferViewModelCreateEdit
 
 @{
     ViewData["Title"] = "EditOffer";
@@ -13,21 +13,21 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-@*            <div class="form-group">
+            <div class hidden="form-group">
                 <label asp-for="Idoffer" class="control-label"></label>
                 <input asp-for="Idoffer" class="form-control" />
                 <span asp-validation-for="Idoffer" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class hidden="form-group">
                 <label asp-for="Idopportunity" class="control-label"></label>
                 <input asp-for="Idopportunity" class="form-control" />
                 <span asp-validation-for="Idopportunity" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class hidden="form-group">
                 <label asp-for="Idowner" class="control-label"></label>
                 <input asp-for="Idowner" class="form-control" />
                 <span asp-validation-for="Idowner" class="text-danger"></span>
-            </div>*@
+            </div>
             <div class="form-group">
                 <label asp-for="OfferType" class="control-label"></label>
                 @*<input asp-for="OfferType" class="form-control" />*@

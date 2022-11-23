@@ -28,10 +28,10 @@ namespace basicCRM.Controllers
         public ActionResult Index()
         {
             var list=_offerRepository.GetAllOffers();
-            var viewmodellist = new List<OfferViewModel>();
+            var viewmodellist = new List<OfferViewModelIndexDetails>();
             foreach (var offer in list)
             {
-                viewmodellist.Add(new OfferViewModel(offer, _opportunityRepository, _employeeRepository));
+                viewmodellist.Add(new OfferViewModelIndexDetails(offer, _opportunityRepository, _employeeRepository));
             }
             return View(viewmodellist);
         }
@@ -40,7 +40,7 @@ namespace basicCRM.Controllers
         public ActionResult Details(Guid id)
         {
             var model = _offerRepository.GetOfferById(id);
-            var viewmodel = new OfferViewModel(model, _opportunityRepository, _employeeRepository);
+            var viewmodel = new OfferViewModelIndexDetails(model, _opportunityRepository, _employeeRepository);
             return View("DetailsOffer",viewmodel);
         }
 
@@ -48,7 +48,7 @@ namespace basicCRM.Controllers
         public ActionResult Create()
         {
             ViewBag.offertypes=loffertypes;
-            var viewmodel = new OfferViewModelExtended(new OfferModel(), _opportunityRepository, _employeeRepository);
+            var viewmodel = new OfferViewModelCreateEdit(new OfferModel(), _opportunityRepository, _employeeRepository);
             return View("CreateOffer",viewmodel);
         }
 
@@ -78,7 +78,7 @@ namespace basicCRM.Controllers
         {
             ViewBag.offertypes = loffertypes;
             var model = _offerRepository.GetOfferById(id);
-            var viewmodel = new OfferViewModelExtended(model, _opportunityRepository, _employeeRepository); 
+            var viewmodel = new OfferViewModelCreateEdit(model, _opportunityRepository, _employeeRepository); 
             return View("EditOffer",viewmodel);
         }
 
@@ -91,7 +91,7 @@ namespace basicCRM.Controllers
             {
                 var model = new OfferModel();
                 var task = TryUpdateModelAsync(model);
-                model.Idoffer=id;
+                //model.Idoffer=id;
                 if (task.Result)
                 {
                     _offerRepository.UpdateOffer(model);
@@ -108,7 +108,7 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model = _offerRepository.GetOfferById(id);
-            var viewmodel= new OfferViewModelExtended(model, _opportunityRepository, _employeeRepository);
+            var viewmodel= new OfferViewModelCreateEdit(model, _opportunityRepository, _employeeRepository);
             return View("DeleteOffer",viewmodel);
         }
 

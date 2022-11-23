@@ -43,7 +43,7 @@ namespace basicCRM.Controllers
         // GET: ContactPersonController/Create
         public ActionResult Create()
         {
-            var viewmodel = new ContactPersonViewModelExtended(new ContactPersonModel(), _customerRepository);
+            var viewmodel = new ContactPersonViewModelCreateEdit(new ContactPersonModel(), _customerRepository);
             return View("CreateContactPerson",viewmodel);
         }
 
@@ -72,7 +72,7 @@ namespace basicCRM.Controllers
         public ActionResult Edit(Guid id)
         {
             var model = _contactpersonRepository.GetContactPersonById(id);
-            var viewmodel = new ContactPersonViewModelExtended(model, _customerRepository);
+            var viewmodel = new ContactPersonViewModelCreateEdit(model, _customerRepository);
             return View("EditContactPerson",viewmodel);
         }
 
