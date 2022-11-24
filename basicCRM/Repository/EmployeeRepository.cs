@@ -55,6 +55,16 @@ namespace basicCRM.Repository
             return list;
         }
 
+        public List<EmployeeModel> GetAllEmployeesSortedBy(string searchString)
+        {
+            var list = new List<EmployeeModel>();
+            foreach (var dbobject in _DBContext.Employees.Where(x => x.Name.Contains(searchString) || x.Email.Contains(searchString)))
+            {
+                list.Add(MapDBObjectToModel(dbobject));
+            }
+            return list;
+        }
+
         public EmployeeModel GetEmployeeById(Guid id)
         {
             return MapDBObjectToModel(_DBContext.Employees.FirstOrDefault(x => x.Idemployee == id));

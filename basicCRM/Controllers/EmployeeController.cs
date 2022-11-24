@@ -21,9 +21,13 @@ namespace basicCRM.Controllers
             _employeeRepository = new EmployeeRepository(dbcontext);
         }
         // GET: EmployeeController
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var list = _employeeRepository.GetAllEmployees();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                list = _employeeRepository.GetAllEmployeesSortedBy(searchString);
+            }
             return View(list);
         }
 

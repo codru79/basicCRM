@@ -56,6 +56,16 @@ namespace basicCRM.Repository
             return list;
         }
 
+        public List<CustomerModel> GetAllCustomersSortedBy(string searchString)
+        {
+            var list = new List<CustomerModel>();
+            foreach (var dbobject in _DBContext.Customers.Where(x => x.Name.Contains(searchString) || x.Adress.Contains(searchString)))
+            {
+                list.Add(MapDBObjectToModel(dbobject));
+            }
+            return list;
+        }
+
         public CustomerModel GetCustomerById(Guid id)
         {
             return MapDBObjectToModel(_DBContext.Customers.FirstOrDefault(x => x.Idcustomer == id));

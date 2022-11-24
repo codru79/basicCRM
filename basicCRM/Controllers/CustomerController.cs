@@ -19,9 +19,13 @@ namespace basicCRM.Controllers
         _customerRepository = new CustomerRepository(dbcontext);
         }
         // GET: CustomerController
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var list = _customerRepository.GetAllCustomers();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                list = _customerRepository.GetAllCustomersSortedBy(searchString);
+            }
             return View(list);
         }
 
