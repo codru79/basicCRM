@@ -21,9 +21,13 @@ namespace basicCRM.Controllers
             _customerRepository = new CustomerRepository(dbcontext);    
         }
         // GET: ContactPersonController
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var list = _contactpersonRepository.GetAllContactPersons();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                list = _contactpersonRepository.GetAllContactPersonsSortedBy(searchString);
+            }
             var viewmodellist = new List<ContactPersonViewModelIndexDetails>();
             foreach (var contactperson in list)
             {

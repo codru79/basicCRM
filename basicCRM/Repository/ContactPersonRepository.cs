@@ -59,6 +59,16 @@ namespace basicCRM.Repository
             return list;
         }
 
+        public List<ContactPersonModel> GetAllContactPersonsSortedBy(string sortString)
+        {
+            var list = new List<ContactPersonModel>();
+            foreach (var dbobject in _DBContext.ContactPersons.Where(x => x.Name.Equals(sortString) || x.Email.Equals(sortString)))
+            {
+                list.Add(MapDBObjectToModel(dbobject));
+            }
+            return list;
+        }
+
         public ContactPersonModel GetContactPersonById(Guid id)
         {
             return MapDBObjectToModel(_DBContext.ContactPersons.FirstOrDefault(x => x.IdcontactPerson == id));
