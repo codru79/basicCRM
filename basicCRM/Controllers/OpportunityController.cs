@@ -29,9 +29,13 @@ namespace basicCRM.Controllers
 
 
         // GET: OpportunityController
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var list = _opportunityRepository.GetAllOpportunities();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                list = _opportunityRepository.GetAllOpportunitiesSortedBy(searchString);
+            }
             var viewmodellist = new List<OpportunityViewModelIndexDetails>();
             foreach (var opportunity in list)
             {

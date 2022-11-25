@@ -66,6 +66,17 @@ namespace basicCRM.Repository
             return list;
         }
 
+
+        public List<OpportunityModel> GetAllOpportunitiesSortedBy(string searchString)
+        {
+            var list = new List<OpportunityModel>();
+            foreach (var dbobject in _DBContext.Opportunities.Where(x => x.Name.Contains(searchString)))
+            {
+                list.Add(MapDBObjectToModel(dbobject));
+            }
+            return list;
+        }
+
         public OpportunityModel GetOpportunityByID(Guid id)
         {
             return MapDBObjectToModel(_DBContext.Opportunities.FirstOrDefault(x => x.Idopportunity == id));
