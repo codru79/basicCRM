@@ -60,6 +60,16 @@ namespace basicCRM.Repository
             return list;
         }
 
+        public List<OfferModel> GetAllOffersSortedBy(string searchString)
+        {
+            var list = new List<OfferModel>();
+            foreach (var dbobject in _DBContext.Offers.Where(x => x.OfferType.Contains(searchString)))
+            {
+                list.Add(MapDBObjectToModel(dbobject));
+            }
+            return list;
+        }
+
         public OfferModel GetOfferById(Guid id)
         {
             return MapDBObjectToModel(_DBContext.Offers.FirstOrDefault(x => x.Idoffer == id));

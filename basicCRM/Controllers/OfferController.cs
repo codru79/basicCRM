@@ -25,9 +25,13 @@ namespace basicCRM.Controllers
             _opportunityRepository=new OpportunityRepository(_DBContext);
         }
         // GET: OfferController
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var list=_offerRepository.GetAllOffers();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                list = _offerRepository.GetAllOffersSortedBy(searchString);
+            }
             var viewmodellist = new List<OfferViewModelIndexDetails>();
             foreach (var offer in list)
             {
