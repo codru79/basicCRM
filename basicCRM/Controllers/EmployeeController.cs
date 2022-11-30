@@ -26,7 +26,7 @@ namespace basicCRM.Controllers
             var list = _employeeRepository.GetAllEmployees();
             if (!String.IsNullOrEmpty(searchString))
             {
-                list = _employeeRepository.GetAllEmployeesSortedBy(searchString);
+                list = _employeeRepository.GetAllEmployeeFilteredBy(searchString);
             }
             return View(list);
         }

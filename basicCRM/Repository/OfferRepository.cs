@@ -60,7 +60,7 @@ namespace basicCRM.Repository
             return list;
         }
 
-        public List<OfferModel> GetAllOffersSortedBy(string searchString)
+        public List<OfferModel> GetAllOffersFilteredBy(string searchString)
         {
             var list = new List<OfferModel>();
             foreach (var dbobject in _DBContext.Offers.Where(x => x.OfferType.Contains(searchString)))

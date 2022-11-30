@@ -55,7 +55,7 @@ namespace basicCRM.Repository
             return list;
         }
 
-        public List<EmployeeModel> GetAllEmployeesSortedBy(string searchString)
+        public List<EmployeeModel> GetAllEmployeeFilteredBy(string searchString)
         {
             var list = new List<EmployeeModel>();
             foreach (var dbobject in _DBContext.Employees.Where(x => x.Name.Contains(searchString) || x.Email.Contains(searchString)))

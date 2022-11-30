@@ -59,7 +59,7 @@ namespace basicCRM.Repository
             return list;
         }
 
-        public List<ContactPersonModel> GetAllContactPersonsSortedBy(string searchString)
+        public List<ContactPersonModel> GetAllContactPersonsFilteredBy(string searchString)
         {
             var list = new List<ContactPersonModel>();
             foreach (var dbobject in _DBContext.ContactPersons.Where(x => x.Name.Contains(searchString) || x.Email.Contains(searchString)))

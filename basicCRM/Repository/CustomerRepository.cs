@@ -56,7 +56,7 @@ namespace basicCRM.Repository
             return list;
         }
 
-        public List<CustomerModel> GetAllCustomersSortedBy(string searchString)
+        public List<CustomerModel> GetAllCustomersFilteredBy(string searchString)
         {
             var list = new List<CustomerModel>();
             foreach (var dbobject in _DBContext.Customers.Where(x => x.Name.Contains(searchString) || x.Adress.Contains(searchString)))

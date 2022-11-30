@@ -34,7 +34,7 @@ namespace basicCRM.Controllers
             var list = _opportunityRepository.GetAllOpportunities();
             if (!String.IsNullOrEmpty(searchString))
             {
-                list = _opportunityRepository.GetAllOpportunitiesSortedBy(searchString);
+                list = _opportunityRepository.GetAllOpportunitiesFilteredBy(searchString);
             }
             var viewmodellist = new List<OpportunityViewModelIndexDetails>();
             foreach (var opportunity in list)

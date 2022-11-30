@@ -24,7 +24,7 @@ namespace basicCRM.Controllers
             var list = _customerRepository.GetAllCustomers();
             if (!String.IsNullOrEmpty(searchString))
             {
-                list = _customerRepository.GetAllCustomersSortedBy(searchString);
+                list = _customerRepository.GetAllCustomersFilteredBy(searchString);
             }
             return View(list);
         }

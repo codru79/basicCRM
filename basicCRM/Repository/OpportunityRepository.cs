@@ -67,7 +67,7 @@ namespace basicCRM.Repository
         }
 
 
-        public List<OpportunityModel> GetAllOpportunitiesSortedBy(string searchString)
+        public List<OpportunityModel> GetAllOpportunitiesFilteredBy(string searchString)
         {
             var list = new List<OpportunityModel>();
             foreach (var dbobject in _DBContext.Opportunities.Where(x => x.Name.Contains(searchString)))

@@ -30,7 +30,7 @@ namespace basicCRM.Controllers
             var list=_offerRepository.GetAllOffers();
             if (!String.IsNullOrEmpty(searchString))
             {
-                list = _offerRepository.GetAllOffersSortedBy(searchString);
+                list = _offerRepository.GetAllOffersFilteredBy(searchString);
             }
             var viewmodellist = new List<OfferViewModelIndexDetails>();
             foreach (var offer in list)

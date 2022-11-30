@@ -26,7 +26,7 @@ namespace basicCRM.Controllers
             var list = _contactpersonRepository.GetAllContactPersons();
             if (!String.IsNullOrEmpty(searchString))
             {
-                list = _contactpersonRepository.GetAllContactPersonsSortedBy(searchString);
+                list = _contactpersonRepository.GetAllContactPersonsFilteredBy(searchString);
             }
             var viewmodellist = new List<ContactPersonViewModelIndexDetails>();
             foreach (var contactperson in list)
