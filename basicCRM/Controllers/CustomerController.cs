@@ -31,11 +31,12 @@ namespace basicCRM.Controllers
 
 
             int recordsSkip = (page - 1) * pageSize;
+            int recordsCount = list.Count();
             if (!String.IsNullOrEmpty(searchString))
             {
                 list = _customerRepository.GetAllCustomersFilteredBy(searchString);
             }
-            int recordsCount = list.Count();
+          
             var pager = new Pager(recordsCount, page, pageSize);
             var data = list.Skip(recordsSkip).Take(pager.PageSize);
 
