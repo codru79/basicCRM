@@ -25,9 +25,17 @@ namespace basicCRM.Controllers
             _opportunityRepository=new OpportunityRepository(_DBContext);
         }
         // GET: OfferController
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString, int page)
         {
             var list=_offerRepository.GetAllOffers();
+            int pageSize = 2;
+            if (page < 1)
+            {
+                page = 1;
+            }
+
+            int recordsSkip = (page - 1) * pageSize;
+            int recordsCount = list.Count();
             if (!String.IsNullOrEmpty(searchString))
             {
                 list = _offerRepository.GetAllOffersFilteredBy(searchString);
@@ -37,7 +45,11 @@ namespace basicCRM.Controllers
             {
                 viewmodellist.Add(new OfferViewModelIndexDetails(offer, _opportunityRepository, _employeeRepository));
             }
-            return View(viewmodellist);
+            var pager = new Pager(recordsCount, page, pageSize);
+            var data = viewmodellist.Skip(recordsSkip).Take(pager.PageSize);
+
+            this.ViewBag.Pager = pager;
+            return View(data);
         }
 
         // GET: OfferController/Details/5
