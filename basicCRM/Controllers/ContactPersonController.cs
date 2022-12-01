@@ -21,19 +21,31 @@ namespace basicCRM.Controllers
             _customerRepository = new CustomerRepository(dbcontext);    
         }
         // GET: ContactPersonController
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString, int page)
         {
             var list = _contactpersonRepository.GetAllContactPersons();
+            int pageSize = 2;
+            if (page < 1)
+            {
+                page = 1;
+            }
+
+            int recordsSkip = (page - 1) * pageSize;
             if (!String.IsNullOrEmpty(searchString))
             {
                 list = _contactpersonRepository.GetAllContactPersonsFilteredBy(searchString);
             }
+            int recordsCount = list.Count();
+            var pager = new Pager(recordsCount, page, pageSize);
+            this.ViewBag.Pager = pager;
+
             var viewmodellist = new List<ContactPersonViewModelIndexDetails>();
             foreach (var contactperson in list)
             {
                 viewmodellist.Add(new ContactPersonViewModelIndexDetails(contactperson, _customerRepository));
             }
-            return View(viewmodellist);
+            var data = viewmodellist.Skip(recordsSkip).Take(pager.PageSize);
+            return View(data);
         }
 
         // GET: ContactPersonController/Details/5
