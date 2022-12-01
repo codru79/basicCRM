@@ -29,9 +29,17 @@ namespace basicCRM.Controllers
 
 
         // GET: OpportunityController
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString,int page)
         {
             var list = _opportunityRepository.GetAllOpportunities();
+            int pageSize = 2;
+            if (page < 1)
+            {
+                page = 1;
+            }
+
+            int recordsSkip = (page - 1) * pageSize;
+            int recordsCount = list.Count();
             if (!String.IsNullOrEmpty(searchString))
             {
                 list = _opportunityRepository.GetAllOpportunitiesFilteredBy(searchString);
@@ -41,8 +49,11 @@ namespace basicCRM.Controllers
             {
                 viewmodellist.Add(new OpportunityViewModelIndexDetails(opportunity, _customerRepository,_employeeRepository));
             }
+            var pager = new Pager(recordsCount, page, pageSize);
+            var data = viewmodellist.Skip(recordsSkip).Take(pager.PageSize);
 
-            return View(viewmodellist);
+            this.ViewBag.Pager = pager;
+            return View(data);
         }
 
         // GET: OpportunityController/Details/5
