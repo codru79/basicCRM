@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using basicCRM.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace basicCRM.Controllers
 {
@@ -19,14 +20,27 @@ namespace basicCRM.Controllers
         _customerRepository = new CustomerRepository(dbcontext);
         }
         // GET: CustomerController
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString, int page)
         {
             var list = _customerRepository.GetAllCustomers();
+            int pageSize = 2;
+            if (page < 1)
+            {
+                page = 1;
+            }
+
+
+            int recordsSkip = (page - 1) * pageSize;
             if (!String.IsNullOrEmpty(searchString))
             {
                 list = _customerRepository.GetAllCustomersFilteredBy(searchString);
             }
-            return View(list);
+            int recordsCount = list.Count();
+            var pager = new Pager(recordsCount, page, pageSize);
+            var data = list.Skip(recordsSkip).Take(pager.PageSize);
+
+            this.ViewBag.Pager = pager;
+            return View(data);
         }
 
         // GET: CustomerController/Details/5
