@@ -21,21 +21,17 @@ namespace basicCRM.Controllers
             _employeeRepository = new EmployeeRepository(dbcontext);
         }
         // GET: EmployeeController
-        public ActionResult Index(string searchString, int page)
+        public ActionResult Index(string searchString, int page=1)
         {
             var list = _employeeRepository.GetAllEmployees();
             int pageSize = 2;
-            if (page < 1)
-            {
-                page = 1;
-            }
-
 
             int recordsSkip = (page - 1) * pageSize;
             int recordsCount = list.Count();
             if (!String.IsNullOrEmpty(searchString))
             {
                 list = _employeeRepository.GetAllEmployeeFilteredBy(searchString);
+                recordsSkip = 0;
             }
             
             var pager = new Pager(recordsCount, page, pageSize);

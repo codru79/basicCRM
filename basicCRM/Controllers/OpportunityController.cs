@@ -29,20 +29,17 @@ namespace basicCRM.Controllers
 
 
         // GET: OpportunityController
-        public ActionResult Index(string searchString,int page)
+        public ActionResult Index(string searchString,int page = 1)
         {
             var list = _opportunityRepository.GetAllOpportunities();
             int pageSize = 2;
-            if (page < 1)
-            {
-                page = 1;
-            }
 
             int recordsSkip = (page - 1) * pageSize;
             int recordsCount = list.Count();
             if (!String.IsNullOrEmpty(searchString))
             {
                 list = _opportunityRepository.GetAllOpportunitiesFilteredBy(searchString);
+                recordsSkip = 0;
             }
             var viewmodellist = new List<OpportunityViewModelIndexDetails>();
             foreach (var opportunity in list)
@@ -51,7 +48,6 @@ namespace basicCRM.Controllers
             }
             var pager = new Pager(recordsCount, page, pageSize);
             var data = viewmodellist.Skip(recordsSkip).Take(pager.PageSize);
-
             this.ViewBag.Pager = pager;
             return View(data);
         }
