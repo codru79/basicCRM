@@ -23,7 +23,7 @@ namespace basicCRM.Controllers
         public ActionResult Index(string searchString, int page=1)
         {
             var list = _customerRepository.GetAllCustomers();
-            int pageSize = 2;
+            int pageSize = 4;
 
             int recordsSkip = (page - 1) * pageSize;
             int recordsCount = list.Count();
@@ -131,10 +131,18 @@ namespace basicCRM.Controllers
                 _customerRepository.DeleteCustomer(id);
                 return RedirectToAction(nameof(Index));
             }
+            catch (Exception ex)
+            {
+                if (ex.Source != null)
+                    Console.WriteLine("Verifica daca acest client este legat de o oportunitate {0}",ex.Source);
+                    throw;
+                                           
+            }
             catch
             {
-                return View("Delete",id);
+                return View("DeleteCustomer", id);
             }
+
         }
     }
 }

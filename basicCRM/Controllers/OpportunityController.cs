@@ -32,7 +32,7 @@ namespace basicCRM.Controllers
         public ActionResult Index(string searchString,int page = 1)
         {
             var list = _opportunityRepository.GetAllOpportunities();
-            int pageSize = 2;
+            int pageSize = 4;
 
             int recordsSkip = (page - 1) * pageSize;
             int recordsCount = list.Count();
@@ -128,7 +128,7 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model= _opportunityRepository.GetOpportunityByID(id);
-            var viewmodel = new OpportunityViewModelIndexDetails(model, _customerRepository, _employeeRepository);
+            var viewmodel = new OpportunityViewModelCreateEdit(model, _customerRepository, _employeeRepository);
             return View("DeleteOpportunity",viewmodel);
         }
 
@@ -145,7 +145,7 @@ namespace basicCRM.Controllers
             }
             catch
             {
-                return View("Delete", id);
+                return View("DeleteOpportunity", id);
             }
         }
     }

@@ -28,7 +28,7 @@ namespace basicCRM.Controllers
         public ActionResult Index(string searchString, int page = 1)
         {
             var list=_offerRepository.GetAllOffers();
-            int pageSize = 2;
+            int pageSize = 4;
 
             int recordsSkip = (page - 1) * pageSize;
             int recordsCount = list.Count();
@@ -137,7 +137,7 @@ namespace basicCRM.Controllers
             }
             catch
             {
-                return View("Delete",id);
+                return View("DeleteOffer", id);
             }
         }
     }

@@ -24,7 +24,7 @@ namespace basicCRM.Controllers
         public ActionResult Index(string searchString, int page=1)
         {
             var list = _contactpersonRepository.GetAllContactPersons();
-            int pageSize = 2;
+            int pageSize = 4;
             int recordsSkip = (page - 1) * pageSize;
             int recordsCount = list.Count();
             if (!String.IsNullOrEmpty(searchString))
@@ -116,7 +116,7 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model= _contactpersonRepository.GetContactPersonById(id);
-            var viewmodel = new ContactPersonViewModelIndexDetails(model, _customerRepository);
+            var viewmodel = new ContactPersonViewModelCreateEdit(model, _customerRepository);
             return View("DeleteContactPerson",viewmodel);
         }
 
@@ -132,7 +132,7 @@ namespace basicCRM.Controllers
             }
             catch
             {
-                return View("Delete",id);
+                return View("DeleteContactPerson", id);
             }
         }
     }
