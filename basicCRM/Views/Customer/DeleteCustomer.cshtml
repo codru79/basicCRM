@@ -43,6 +43,13 @@
             @Html.DisplayFor(model => model.CreatedBy)
         </dd>
     </dl>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
     
     <form asp-action="Delete">
         <input type="submit" value="Delete" class="btn btn-danger" /> |

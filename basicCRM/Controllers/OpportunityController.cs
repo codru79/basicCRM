@@ -129,6 +129,7 @@ namespace basicCRM.Controllers
         {
             var model= _opportunityRepository.GetOpportunityByID(id);
             var viewmodel = new OpportunityViewModelCreateEdit(model, _customerRepository, _employeeRepository);
+            ViewBag.ErrorMessage = "Aceasta oportunitate este legat de o oferta si nu se poate sterge";
             return View("DeleteOpportunity",viewmodel);
         }
 

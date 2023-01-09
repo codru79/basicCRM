@@ -104,7 +104,6 @@ namespace basicCRM.Controllers
             {
                 var model = new OfferModel();
                 var task = TryUpdateModelAsync(model);
-                //model.Idoffer=id;
                 if (task.Result)
                 {
                     _offerRepository.UpdateOffer(model);

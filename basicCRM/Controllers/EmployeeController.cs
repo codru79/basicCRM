@@ -114,6 +114,7 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model = _employeeRepository.GetEmployeeById(id);
+            ViewBag.ErrorMessage = "Acest angajat este relationat de o oportunitate/oferta/client si nu se poate sterge";
             return View("DeleteEmployee",model);
         }
 
@@ -125,7 +126,8 @@ namespace basicCRM.Controllers
             try
             {
               _employeeRepository.DeleteEmployee(id);
-              return RedirectToAction(nameof(Index));
+                ViewBag.ErrorMessage = "Acest angajat este relationat de o oportunitate/oferta/client si nu se poate sterge";
+                return RedirectToAction(nameof(Index));
             }
             catch
             {

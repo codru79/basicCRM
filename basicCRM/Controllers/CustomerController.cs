@@ -117,6 +117,7 @@ namespace basicCRM.Controllers
         public ActionResult Delete(Guid id)
         {
             var model = _customerRepository.GetCustomerById(id);
+            ViewBag.ErrorMessage = "Acest client este legat de o oportunitate si nu se poate sterge";
             return View("DeleteCustomer",model);
         }
 
@@ -135,7 +136,7 @@ namespace basicCRM.Controllers
             {
                 if (ex.Source != null)
                     Console.WriteLine("Verifica daca acest client este legat de o oportunitate {0}",ex.Source);
-                    throw;
+                     throw new Exception("Verifica daca acest client este legat de o oportunitate"); 
                                            
             }
             catch
